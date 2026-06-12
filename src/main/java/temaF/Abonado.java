@@ -69,14 +69,34 @@ public class Abonado extends Persona {
         this.password = password;
     }
     
-    public boolean validarIngreso (int password){
-        
+    public boolean validarIngreso (int psw){
+        if (psw == password){
+            System.out.println("Ingreso valido");
+            return true;
+        }
         return false;
-        
     }
     
     public void cambioPassword(String passNueva){
         
+        if(passNueva.equals("")){
+            System.out.println("Ingresa una contraseña valida");
+        } else {
+            this.password = Integer.parseInt(passNueva);
+            System.out.println("La contraseña se actualizo correctamente");
+        }
     }
     
+    public void delay(int mili){
+    try {
+        Thread.sleep(mili);
+        } catch (InterruptedException e) {
+            System.out.println("Delay de " + mili + " milisegundos");
+        }
+    }
+    
+    public boolean abonadosDiferentes(Abonado c2) {
+        return this != c2;
+       }
 }
+
